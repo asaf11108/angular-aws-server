@@ -1,7 +1,7 @@
 const Responses = require('./API_Responses');
 
-exports.handler = async event => {
-  if(!event.pathParameters || !event.pathParameters) {
+module.exports.handler = async event => {
+  if(!event.pathParameters || !event.pathParameters.ID) {
     return Responses._400({message: 'Missing id from the path'});
   }
 

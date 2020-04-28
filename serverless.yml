@@ -27,6 +27,9 @@ provider:
   stage: dev
   region: us-east-1
 
+plugins:
+  - serverless-offline
+
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -62,6 +65,13 @@ functions:
     events:
       - http:
           path: get-user/{ID}
+          method: get
+          cors: true
+  getData:
+    handler: lambdas/getData.handler
+    events:
+      - http:
+          path: get-data
           method: get
           cors: true
 #      - websocket: $connect
